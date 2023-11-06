@@ -24,7 +24,7 @@ class BookmarkController extends Controller
             // Assuming $article is the news article you want to bookmark
         ]);
 
-        return response()->json(['message' => 'Article is already bookmarked', 'Data' => $bookmark]);
+        return response()->json(['message' => 'Article bookmarked', 'Data' => $bookmark]);
         // $bookmarks = Bookmarks::Save($user,$article->id);
         // return response()->json(['message' => 'sucess', 'data' => $article]);
     }

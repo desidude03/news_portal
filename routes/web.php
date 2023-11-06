@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\NewsController;
 
 Route::view('/', 'welcome');
 Auth::routes();
@@ -14,7 +15,7 @@ Route::post('/login/admin', [LoginController::class, 'adminLogin']);
 Route::post('/login/customer', [LoginController::class, 'showCustomerRegisterForm']);
 Route::post('/register/admin', [RegisterController::class, 'createAdmin'])->name('register.admin');
 Route::post('/register/customer', [RegisterController::class, 'createcustomer'])->name('register.customer');
-
+Route::post('/import', [NewsController::class, 'import'])->name('news.import');
 Route::view('/home', 'home')->middleware('auth');
 Route::group(['middleware' => 'auth:admin'], function () {
     Route::view('/admin', 'admin');
